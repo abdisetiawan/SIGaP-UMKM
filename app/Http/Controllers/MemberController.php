@@ -23,8 +23,9 @@ class MemberController extends Controller
     }
 
     public function create(Request $request)
-    {   
+    {  
 
+        $admin = \App\Admin::all();
         $user = new \App\User;
         $user->role = 'member';
         $user->name = $request->nama;
@@ -33,6 +34,7 @@ class MemberController extends Controller
         $user->remember_token = str::random(60);
         $user->save();
 
+        
         $request->request->add(['user_id' => $user->id]);
         $member = \App\Member::create($request->all());
 
