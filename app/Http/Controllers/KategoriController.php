@@ -17,6 +17,11 @@ class KategoriController extends Controller
     public function create(Request $request)
     {
         $kategori = \App\Kategori::create($request->all());
+        if($request->hasFile('logo')){
+            $request->file('logo')->move('images/',$request->file('logo')->getClientOriginalName());
+            $kategori->logo = $request->file('logo')->getClientOriginalName();
+            $kategori->save();
+        }
         return redirect('/kategori')->with('sukses','Data sukses diinput');
     }
 
@@ -35,6 +40,11 @@ class KategoriController extends Controller
     public function update(Request $request,Kategori $kategori){
         //dd($request->all());
         $kategori->update($request->all());
+        if($request->hasFile('logo')){
+            $request->file('logo')->move('images/',$request->file('logo')->getClientOriginalName());
+            $kategori->logo = $request->file('logo')->getClientOriginalName();
+            $kategori->save();
+        }
         return redirect('/kategori')->with('sukses','Data sukses diupdate');
     }
 

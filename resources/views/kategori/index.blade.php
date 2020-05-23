@@ -23,6 +23,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Kategori</th>
+                                    <th>Logo</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -34,6 +35,7 @@
                                 <tr>
                                     <td>{{$no}}</td>
                                     <td>{{$kategori->nama_ktgr}}</td>
+                                    <td><img src="images/{{ $kategori->logo }}" class="rounded" alt="Logo" width="30" height="30"></td>
                                     <td>
                                         <a href="/kategori/{{$kategori->id}}/edit"
                                             class="btn btn-warning btn-sm">Edit</a>
@@ -73,6 +75,10 @@
                         <label for="nama_ktgr">Nama Kategori</label>
                         <input name="nama_ktgr" type="text" class="form-control" id="nama_ktgr"
                             placeholder="Nama kategori" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="logo">Logo</label>
+                        <input type="file" name="logo" class="form-control">
                     </div>
             </div>
 

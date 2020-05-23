@@ -22,6 +22,10 @@
                                 <input name="nama_ktgr" type="text" class="form-control" id="nama_ktgr"
                                     placeholder="Nama Depan" value="{{$kategori->nama_ktgr}}">
                             </div>
+                            <div class="form-group">
+                                <label for="logo">Logo</label>
+                                <input type="file" name="logo" class="form-control">
+                            </div>
                             <button type="submit" class="btn btn-primary btn-warning">Update</button>
                         </form>
                     </div>

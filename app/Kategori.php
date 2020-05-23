@@ -8,7 +8,7 @@ class Kategori extends Model
 {
     //
     protected $table = 'kategori';
-    protected $fillable = ['nama_ktgr'];
+    protected $fillable = ['nama_ktgr','logo'];
 
     public function umkm()
     {
