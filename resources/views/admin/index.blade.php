@@ -7,14 +7,6 @@
 @endif
 <div class="main-content">
     <div class="container-fluid">
-        <form class="navbar-form navbar-left" method="GET" action="/admin">
-            <div class="input-group">
-                <input name="cari" type="search" class="form-control" placeholder="Masukan Nama">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary">Go</button>
-                </span>
-            </div>
-        </form>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel">

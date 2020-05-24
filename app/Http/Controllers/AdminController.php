@@ -11,11 +11,7 @@ class AdminController extends Controller
     //
     public function index(Request $request)
     {
-        if($request->has('cari')){
-            $data_admin = \App\Admin::where('nama','LIKE','%'.$request->cari.'%')->get();
-        }else{
-            $data_admin = \App\Admin::all();
-        }
+        $data_admin = \App\Admin::all();
         return view('admin.index',['data_admin' => $data_admin]);
     }
 
