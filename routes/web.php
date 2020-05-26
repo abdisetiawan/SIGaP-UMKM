@@ -17,9 +17,19 @@ Route::get('/', function () {
     return view('home');
 });
 
-// role member
+// role member dan admin
 Route::group(['middleware' => ['auth','checkRole:admin,member']],function(){
 Route::get('/dashboard','DashboardController@index');
+});
+
+// role admin
+Route::group(['middleware' => ['auth','checkRole:member']],function(){
+    // profile
+    Route::get('/profilesaya','MemberController@profilesaya');
+
+    // edit detail diri
+    Route::get('/member/{member}/edit','MemberController@edit');
+    Route::post('/member/{member}/update','MemberController@update');
 });
 
 // role admin

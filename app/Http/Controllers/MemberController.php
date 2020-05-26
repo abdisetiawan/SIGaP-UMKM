@@ -25,7 +25,6 @@ class MemberController extends Controller
     public function create(Request $request)
     {  
 
-        $admin = \App\Admin::all();
         $user = new \App\User;
         $user->role = 'member';
         $user->name = $request->nama;
@@ -58,6 +57,28 @@ class MemberController extends Controller
         $member = Member::all();
         $pdf = PDF::loadView('export.memberpdf', ['member' => $member]);
         return $pdf->download('member.pdf');
+    }
+
+    public function profilesaya() 
+    {
+        $member = auth()->user()->member;
+        return view('member.profilesaya',compact(['member']));
+    }
+
+    public function edit(Member $member){
+        // pasing data ke views edit
+        return view('member/edit',['member' => $member]);
+    }
+
+    public function update(Request $request,Member $member){
+        //dd($request->all());
+        $member->update($request->all());
+        if($request->hasFile('avatar')){
+            $request->file('avatar')->move('images/',$request->file('avatar')->getClientOriginalName());
+            $member->avatar = $request->file('avatar')->getClientOriginalName();
+            $member->save();
+        }
+        return redirect('/profilesaya')->with('sukses','Data sukses diupdate');
     }
 
 }
