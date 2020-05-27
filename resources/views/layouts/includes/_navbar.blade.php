@@ -20,7 +20,8 @@
                             class="icon-submenu lnr lnr-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         @if(auth()->user()->role == 'member')
-                        <li><a href="/profilesaya"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+                        <li><a href="/profilesaya"><i class="lnr lnr-user"></i> <span>Profile Saya</span></a></li>
+                        <li><a href="/gantipassword"><i class="lnr lnr-lock"></i> <span>Ganti Password</span></a></li>
                         @endif
                         <li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                     </ul>

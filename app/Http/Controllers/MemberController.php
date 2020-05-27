@@ -8,6 +8,10 @@ use Illuminate\Support\Str;
 use App\Exports\MemberExport;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+use Illuminate\Support\Facades\Hash;
+use \App\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class MemberController extends Controller
 {

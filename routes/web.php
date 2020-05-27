@@ -30,6 +30,10 @@ Route::group(['middleware' => ['auth','checkRole:member']],function(){
     // edit detail diri
     Route::get('/member/{member}/edit','MemberController@edit');
     Route::post('/member/{member}/update','MemberController@update');
+
+    // ganti password
+    Route::get('gantipassword', 'GantiPasswordController@index');
+    Route::post('gantipassword', 'GantiPasswordController@store')->name('ganti.password');
 });
 
 // role admin
