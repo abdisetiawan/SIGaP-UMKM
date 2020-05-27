@@ -21,8 +21,8 @@
                     <ul class="dropdown-menu">
                         @if(auth()->user()->role == 'member')
                         <li><a href="/profilesaya"><i class="lnr lnr-user"></i> <span>Profile Saya</span></a></li>
-                        <li><a href="/gantipassword"><i class="lnr lnr-lock"></i> <span>Ganti Password</span></a></li>
                         @endif
+                        <li><a href="/gantipassword"><i class="lnr lnr-lock"></i> <span>Ganti Password</span></a></li>
                         <li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                     </ul>
                 </li>

@@ -31,9 +31,6 @@ Route::group(['middleware' => ['auth','checkRole:member']],function(){
     Route::get('/member/{member}/edit','MemberController@edit');
     Route::post('/member/{member}/update','MemberController@update');
 
-    // ganti password
-    Route::get('gantipassword', 'GantiPasswordController@index');
-    Route::post('gantipassword', 'GantiPasswordController@store')->name('ganti.password');
 });
 
 // role admin
@@ -93,3 +90,7 @@ Route::get('/member/exportpdf','MemberController@exportPdf');
 Route::get('/login','AuthController@login')->name('login');
 Route::post('/postlogin','AuthController@postlogin');
 Route::get('/logout','AuthController@logout');
+
+// ganti password
+Route::get('gantipassword', 'GantiPasswordController@index');
+Route::post('gantipassword', 'GantiPasswordController@store')->name('ganti.password');
