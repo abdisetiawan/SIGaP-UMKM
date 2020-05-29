@@ -29,11 +29,17 @@
                                         <label for="passwordbaru">Masukan Password Baru Anda</label>
                                         <input type="password" class="form-control" id="passwordbaru"
                                             name="passwordbaru">
+                                        @if($errors->has('passwordbaru'))
+                                        <span class="help-block">{{$errors->first('passwordbaru')}}</span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="konfirmasipassword">Konfirmasi Password Anda</label>
                                         <input type="password" class="form-control" id="konfirmasipassword"
                                             name="konfirmasipassword">
+                                        @if($errors->has('konfirmasipassword'))
+                                        <span class="help-block">{{$errors->first('konfirmasipassword')}}</span>
+                                        @endif
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-warning">Ganti Password</button>
                                 </form>

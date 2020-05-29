@@ -11,6 +11,10 @@ use PDF;
 use Illuminate\Support\Facades\Hash;
 use \App\User;
 use Illuminate\Support\Facades\Auth;
+use \App\Umkm;
+use \App\Kelurahan;
+use \App\Kecamatan;
+use \App\Kategori;
 
 
 class MemberController extends Controller
@@ -66,7 +70,8 @@ class MemberController extends Controller
     public function profilesaya() 
     {
         $member = auth()->user()->member;
-        return view('member.profilesaya',compact(['member']));
+        $umkm = auth()->user()->member->umkm;
+        return view('member.profilesaya',compact(['member','umkm']));
     }
 
     public function edit(Member $member){

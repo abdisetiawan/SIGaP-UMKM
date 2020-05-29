@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label for="nama_kcmtn">Nama Kecamatan</label>
                         <input name="nama_kcmtn" type="text" class="form-control" id="nama_kcmtn"
-                            placeholder="Nama kecamatan" autocomplete="off">
+                            placeholder="Kecamatan" autocomplete="off">
                     </div>
             </div>
             <div class="modal-footer">

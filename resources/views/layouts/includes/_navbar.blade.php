@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="/dashboard"><img src="{{asset('admin/assets/img/logo-dark.png')}}" alt="Klorofil Logo"
-                class="img-responsive logo')}}"></a>
+        <a href="/dashboard"><img src="{{asset('admin/assets/img/Dashboard.png')}}" alt="Klorofil Logo"
+                class="img-responsive logo')}}" width="85" height="85"></a>
     </div>
     <div class="container-fluid">
         <div class="navbar-btn">

@@ -11,7 +11,7 @@ class Member extends Model
 
     public function umkm()
     {
-        return $this->hasMany(UMKM::class);
+        return $this->hasMany(Umkm::class);
     }
 
     public function admin()

@@ -21,6 +21,8 @@
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/favicon.png')}}">
+	<!-- MAPS -->
+	<link href="{{asset('map/assets/css/jquery-position-picker.css')}}" rel="stylesheet" type="text/css"/>
 	@yield('header')
 </head>
 
@@ -40,9 +42,7 @@
 		<!-- END MAIN -->
 		<div class="clearfix"></div>
 		<footer>
-			<div class="container-fluid">
-				<p class="copyright">&copy; 2017 <a href="#">Theme I Need</a>. All Rights Reserved.</p>
-			</div>
+			
 		</footer>
 	</div>
 	<!-- END WRAPPER -->
@@ -54,6 +54,9 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 	<script src="{{asset('js/jquerry.js')}}"></script>
+	<script src="{{asset('map/assets/js/jquery-1.7.2.min.js')}}"></script>
+	<script src="{{asset('map/assets/js/OpenLayers.js')}}"></script>
+	<script src="{{asset('map/assets/js/jquery-position-picker.debug.js')}}"></script>
 	@yield('footer')
 	
 

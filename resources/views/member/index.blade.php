@@ -95,7 +95,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input name="email" type="text" class="form-control" id="email" placeholder="email"
+                        <input name="email" type="text" class="form-control" id="email" placeholder="Email"
                             autocomplete="off">
                     </div>
                     <div class="form-group">
