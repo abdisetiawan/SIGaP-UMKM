@@ -25,6 +25,16 @@ class UmkmController extends Controller
         return view('umkm.index',['data_umkm' => $data_umkm,'member' => $member,'kecamatan' => $kecamatan,'kelurahan' => $kelurahan,'kategori' => $kategori]);
     }
 
+    public function formumkm()
+    {
+        $data_umkm = \App\Umkm::all();
+        $member    = \App\Member::all();
+        $kecamatan    = \App\Kecamatan::all();
+        $kelurahan    = \App\Kelurahan::all();
+        $kategori    = \App\Kategori::all();
+        return view('umkm.formumkm',['data_umkm' => $data_umkm,'member' => $member,'kecamatan' => $kecamatan,'kelurahan' => $kelurahan,'kategori' => $kategori]);
+    }
+
     public function create(Request $request)
     {
         $umkm = \App\Umkm::create(
@@ -36,6 +46,8 @@ class UmkmController extends Controller
                 'nama_umkm' => $request['nama_umkm'],
                 'alamat' => $request['alamat'],
                 'keterangan' => $request['keterangan'],
+                'latitude' => $request['titik_lat'],
+                'longitude' => $request['titik_long'],
             ]
         );
         return redirect('/umkm')->with('sukses','Data sukses diinput');

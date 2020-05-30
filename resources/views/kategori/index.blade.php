@@ -35,7 +35,8 @@
                                 <tr>
                                     <td>{{$no}}</td>
                                     <td>{{$kategori->nama_ktgr}}</td>
-                                    <td><img src="images/{{ $kategori->logo }}" class="rounded" alt="Logo" width="30" height="30"></td>
+                                    <td><img src="images/{{ $kategori->logo }}" class="rounded" alt="Logo" width="30"
+                                            height="30"></td>
                                     <td>
                                         <a href="/kategori/{{$kategori->id}}/edit"
                                             class="btn btn-warning btn-sm">Edit</a>
@@ -87,28 +88,28 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-
         </div>
-        @stop
+    </div>
+</div>
+@stop
 
-        @section('footer')
-        <script>
-            $('.delete').click(function () {
-                var kategori_id = $(this).attr('kategori-id');
-                swal({
-                        title: "Apakah anda yakin?",
-                        text: "Mau di hapus data kategori dengan id " + kategori_id + " ?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                        console.log(willDelete);
-                        if (willDelete) {
-                            window.location = "/kategori/" + kategori_id + "/delete";
-                        }
-                    });
+@section('footer')
+<script>
+    $('.delete').click(function () {
+        var kategori_id = $(this).attr('kategori-id');
+        swal({
+                title: "Apakah anda yakin?",
+                text: "Mau di hapus data kategori dengan id " + kategori_id + " ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                console.log(willDelete);
+                if (willDelete) {
+                    window.location = "/kategori/" + kategori_id + "/delete";
+                }
             });
-
-        </script>
-        @stop
+    });
+</script>
+@stop

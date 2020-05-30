@@ -14,6 +14,11 @@ class Member extends Model
         return $this->hasMany(Umkm::class);
     }
 
+    public function galeri()
+    {
+        return $this->hasMany(Galeri::class);
+    }
+
     public function admin()
     {
         return $this->belongsTo(Admin::class);

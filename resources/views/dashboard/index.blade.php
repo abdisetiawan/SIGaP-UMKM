@@ -25,12 +25,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class='gllpLatlonPicker'>
-                        <div class='gllpMap'></div>
-                        <input type='text' name='titik_lat' class='gllpLatitude' value='-6.908' readonly/> &#8592 <font color='red'>Latitude</font> <br/> <br/>
-	<input type='text' name='titik_long' class='gllpLongitude' value='109.7326' readonly/> &#8592 <font color='red'>Longitude</font> <br/> <br/>
-	<input type='text' class='gllpZoom' readonly/> &#8592 <font color='red'>Zoom</font> <br /> <br/>
-                    </div>
+
+                </div>
                 </div>
             </div>
         </div>

@@ -12,19 +12,19 @@
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Form Edit Kategori</h3>
+                        <h3 class="panel-title">Form Edit Galeri</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="/kategori/{{$kategori->id}}/update" method="POST" enctype="multipart/form-data">
+                        <form action="/galeri/{{$galeri->id}}/update" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
-                                <label for="nama_ktgr">nama kategori</label>
-                                <input name="nama_ktgr" type="text" class="form-control" id="nama_ktgr"
-                                    placeholder="Kategori" value="{{$kategori->nama_ktgr}}">
+                                <label for="ktrgn_foto">Keterangan</label>
+                                <input name="ktrgn_foto" type="text" class="form-control" id="ktrgn_foto"
+                                    placeholder="Keterangan" value="{{$galeri->ktrgn_foto}}">
                             </div>
                             <div class="form-group">
-                                <label for="logo">Logo</label>
-                                <input type="file" name="logo" class="form-control">
+                                <label for="foto">Foto</label>
+                                <input type="file" name="foto" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-primary btn-warning">Update</button>
                         </form>
@@ -33,6 +33,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 @stop

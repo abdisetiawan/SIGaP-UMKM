@@ -21,8 +21,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Data UMKM</h3>
                         <div class="right">
-                            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i
-                                    class="lnr lnr-plus-circle"></i></button>
+                            <a href="/addumkm" class="btn btn-primary">Tambah UMKM</a>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -64,75 +63,6 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Form Data UMKM</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="/umkm/create" method="POST" enctype="multipart/form-data">
-                    {{csrf_field()}}
-                    <div class="form-group">
-                        <label for="nama_umkm">Nama UMKM</label>
-                        <input name="nama_umkm" type="text" class="form-control" id="nama_umkm" placeholder="Nama UMKM"
-                            autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="member_id">Nama Pemilik</label>
-                        <select class="form-control" id="member_id" name="member_id">
-                            @foreach($member as $m)
-                            <option value="{{$m->id}}">{{$m->nama}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="kecamatan_id">Kecamatan</label>
-                        <select class="form-control" id="kecamatan_id" name="kecamatan_id">
-                            @foreach($kecamatan as $kcmtn)
-                            <option value="{{$kcmtn->id}}">{{$kcmtn->nama_kcmtn}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="kelurahan_id">Kelurahan</label>
-                        <select class="form-control" id="kelurahan_id" name="kelurahan_id">
-                            @foreach($kelurahan as $klrhn)
-                            <option value="{{$klrhn->id}}">{{$klrhn->nama_klrhn}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="kategori_id">Kategori</label>
-                        <select class="form-control" id="kategori_id" name="kategori_id">
-                            @foreach($kategori as $ktgr)
-                            <option value="{{$ktgr->id}}">{{$ktgr->nama_ktgr}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <textarea name="alamat" class="form-control" id="alamat" rows="3" autocomplete="off"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="keterangan">Keterangan</label>
-                        <textarea name="keterangan" class="form-control" id="keterangan" rows="3"
-                            autocomplete="off"></textarea>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
             </div>
         </div>
     </div>

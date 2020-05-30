@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,member']],function(){
 Route::get('/dashboard','DashboardController@index');
 });
 
-// role admin
+// role member
 Route::group(['middleware' => ['auth','checkRole:member']],function(){
     // profile
     Route::get('/profilesaya','MemberController@profilesaya');
@@ -31,6 +31,12 @@ Route::group(['middleware' => ['auth','checkRole:member']],function(){
     Route::get('/member/{member}/edit','MemberController@edit');
     Route::post('/member/{member}/update','MemberController@update');
 
+    // galeri
+    Route::get('/galeriku','GaleriController@galeriku');
+    Route::post('/galeri/create','GaleriController@create');
+    Route::get('/galeri/{galeri}/edit','GaleriController@edit');
+    Route::post('/galeri/{galeri}/update','GaleriController@update');
+    Route::get('galeri/{galeri}/delete','GaleriController@delete');
 });
 
 // role admin
@@ -74,6 +80,7 @@ Route::post('/kelurahan/{kelurahan}/update','KelurahanController@update');
 
 // umkm
 Route::get('/umkm','UmkmController@index');
+Route::get('/addumkm','UmkmController@formumkm');
 Route::post('/umkm/create','UmkmController@create');
 Route::get('umkm/{umkm}/delete','UmkmController@delete');
 Route::get('/ambilkelurahan/{id}','UmkmController@ambilkelurahan');
