@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('admin/assets/vendor/linearicons/style.css')}}">
+	<link rel="stylesheet" href="{{ asset('vendor/file-manager/css/file-manager.css') }}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('admin/assets/css/main.css')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
@@ -23,6 +24,11 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/favicon.png')}}">
 	<!-- MAPS -->
 	<link href="{{asset('map/assets/css/jquery-position-picker.css')}}" rel="stylesheet" type="text/css"/>
+	<style>
+	    .ck-editor__editable_inline {
+	        min-height: 300px;
+	    }
+	</style>
 	@yield('header')
 </head>
 
@@ -57,6 +63,8 @@
 	<script src="{{asset('map/assets/js/jquery-1.7.2.min.js')}}"></script>
 	<script src="{{asset('map/assets/js/OpenLayers.js')}}"></script>
 	<script src="{{asset('map/assets/js/jquery-position-picker.debug.js')}}"></script>
+	<script src="{{asset('frontend/js/ckeditor.js')}}"></script>
+	<script src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script>
 	@yield('footer')
 	
 

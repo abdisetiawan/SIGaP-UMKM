@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// homepage
+Route::get('/', 'SiteController@home');
+// daftar umkm
+Route::get('/daftarumkm','DaftarController@index')->name('daftarumkm.index');
 
 // role member dan admin
 Route::group(['middleware' => ['auth','checkRole:admin,member']],function(){
@@ -91,6 +92,20 @@ Route::get('/member/exportexcel','MemberController@exportExcel');
 // export pdf
 Route::get('/member/exportpdf','MemberController@exportPdf');
 
+// posts
+Route::get('/posts','PostController@index')->name('posts.index');
+
+// tombol liat berita
+Route::get('/post/add',[
+    'uses' => 'PostController@add',
+    'as'   => 'posts.add'
+]);
+
+Route::post('post/create',[
+    'uses' => 'PostController@create',
+    'as'   => 'posts.create'
+]);
+
 });
 
 // login dashboard
@@ -101,3 +116,9 @@ Route::get('/logout','AuthController@logout');
 // ganti password
 Route::get('gantipassword', 'GantiPasswordController@index');
 Route::post('gantipassword', 'GantiPasswordController@store')->name('ganti.password');
+
+// tombol liat berita
+Route::get('/{slug}',[
+    'uses' => 'SiteController@singlepost',
+    'as'   => 'site.single.post'
+]);
