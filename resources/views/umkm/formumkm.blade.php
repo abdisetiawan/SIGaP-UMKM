@@ -13,14 +13,7 @@
                                 <input name="nama_umkm" type="text" class="form-control" id="nama_umkm"
                                     placeholder="Nama UMKM" autocomplete="off">
                             </div>
-                            <div class="form-group">
-                                <label for="member_id">Nama Pemilik</label>
-                                <select class="form-control" id="member_id" name="member_id">
-                                    @foreach($member as $m)
-                                    <option value="{{$m->id}}">{{$m->nama}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="kecamatan_id">Kecamatan</label>
                                 <select class="form-control" id="kecamatan_id" name="kecamatan_id">

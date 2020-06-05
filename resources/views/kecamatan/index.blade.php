@@ -12,10 +12,12 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Data Kecamatan UMKM</h3>
+                        @if(auth()->user()->role == 'admin')
                         <div class="right">
                             <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i
                                     class="lnr lnr-plus-circle"></i></button>
                         </div>
+                        @endif
                     </div>
                     <div class="panel-body text-wrap">
                         <table class="table table-hover">
@@ -23,7 +25,9 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Kecamatan</th>
+                                    @if(auth()->user()->role == 'admin')
                                     <th>Aksi</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,12 +38,14 @@
                                 <tr>
                                     <td>{{$no}}</td>
                                     <td>{{$kecamatan->nama_kcmtn}}</td>
+                                    @if(auth()->user()->role == 'admin')
                                     <td>
                                         <a href="/kecamatan/{{$kecamatan->id}}/edit"
                                             class="btn btn-warning btn-sm">Edit</a>
                                         <a href="#" class="btn btn-danger btn-sm delete"
                                             kecamatan-id="{{$kecamatan->id}}">Delete</a>
                                     </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                                 </tr>

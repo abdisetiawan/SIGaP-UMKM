@@ -34,9 +34,9 @@
             @foreach($posts as $post)
             <div class="col-lg-3 col-md-6 single-blog">
                 <div class="thumb">
-                    <img class="img-fluid" src="{{$post->thumbnail()}}" alt="">
+                    <img class="img-fluid" src="{{$post->thumbnail()}}" width="150">
                 </div>
-                <p class="meta">{{$post->created_at->format('d M Y')}}  |  By <a>{{$post->user->name}}<a href="#"></a></p>
+                <p class="meta">{{$post->created_at->format('d M Y')}}  |  By <a>{{$post->user->name}}</p>
                 <a>
                     <h5>{{$post->title}}</h5>
                 </a>

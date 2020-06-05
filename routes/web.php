@@ -21,6 +21,9 @@ Route::get('/daftarumkm','DaftarController@index')->name('daftarumkm.index');
 // role member dan admin
 Route::group(['middleware' => ['auth','checkRole:admin,member']],function(){
 Route::get('/dashboard','DashboardController@index');
+Route::get('/kategori','KategoriController@index');
+Route::get('/kecamatan','KecamatanController@index');
+Route::get('/kelurahan','KelurahanController@index');
 });
 
 // role member
@@ -38,6 +41,13 @@ Route::group(['middleware' => ['auth','checkRole:member']],function(){
     Route::get('/galeri/{galeri}/edit','GaleriController@edit');
     Route::post('/galeri/{galeri}/update','GaleriController@update');
     Route::get('galeri/{galeri}/delete','GaleriController@delete');
+
+    // umkm-ku
+    Route::get('/umkmsaya','UmkmController@umkmsaya');
+    Route::get('/addumkm','UmkmController@formumkm');
+    Route::get('/ambilkelurahan/{id}','UmkmController@ambilkelurahan');
+    Route::post('/umkm/create','UmkmController@create');
+    Route::get('umkm/{umkm}/delete','UmkmController@delete');
 });
 
 // role admin
@@ -59,21 +69,18 @@ Route::post('/berita/create','BeritaController@create');
 Route::get('berita/{berita}/delete','BeritaController@delete');
 
 // kategori
-Route::get('/kategori','KategoriController@index');
 Route::post('/kategori/create','KategoriController@create');
 Route::get('kategori/{kategori}/delete','KategoriController@delete');
 Route::get('/kategori/{kategori}/edit','KategoriController@edit');
 Route::post('/kategori/{kategori}/update','KategoriController@update');
 
 // kecamatan
-Route::get('/kecamatan','KecamatanController@index');
 Route::post('/kecamatan/create','KecamatanController@create');
 Route::get('kecamatan/{kecamatan}/delete','KecamatanController@delete');
 Route::get('/kecamatan/{kecamatan}/edit','KecamatanController@edit');
 Route::post('/kecamatan/{kecamatan}/update','KecamatanController@update');
 
 // kelurahan
-Route::get('/kelurahan','KelurahanController@index');
 Route::post('/kelurahan/create','KelurahanController@create');
 Route::get('kelurahan/{kelurahan}/delete','KelurahanController@delete');
 Route::get('/kelurahan/{kelurahan}/edit','KelurahanController@edit');
@@ -81,10 +88,6 @@ Route::post('/kelurahan/{kelurahan}/update','KelurahanController@update');
 
 // umkm
 Route::get('/umkm','UmkmController@index');
-Route::get('/addumkm','UmkmController@formumkm');
-Route::post('/umkm/create','UmkmController@create');
-Route::get('umkm/{umkm}/delete','UmkmController@delete');
-Route::get('/ambilkelurahan/{id}','UmkmController@ambilkelurahan');
 
 // laporan excel
 Route::get('/member/exportexcel','MemberController@exportExcel');
@@ -105,6 +108,8 @@ Route::post('post/create',[
     'uses' => 'PostController@create',
     'as'   => 'posts.create'
 ]);
+
+Route::get('post/{post}/delete','PostController@delete');
 
 });
 

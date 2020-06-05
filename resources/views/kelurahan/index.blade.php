@@ -12,10 +12,12 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Data Kelurahan UMKM</h3>
+                        @if(auth()->user()->role == 'admin')
                         <div class="right">
                             <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i
                                     class="lnr lnr-plus-circle"></i></button>
                         </div>
+                        @endif
                     </div>
                     <div class="panel-body text-wrap">
                         <table class="table table-hover">
@@ -24,7 +26,9 @@
                                     <th>No</th>
                                     <th>Kelurahan</th>
                                     <th>Kecamatan</th>
+                                    @if(auth()->user()->role == 'admin')
                                     <th>Aksi</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,12 +40,14 @@
                                     <td>{{$no}}</td>
                                     <td>{{$kelurahan->nama_klrhn}}</td>
                                     <td>{{$kelurahan->kecamatan->nama_kcmtn}}</td>
+                                    @if(auth()->user()->role == 'admin')
                                     <td>
                                         <a href="/kelurahan/{{$kelurahan->id}}/edit"
                                             class="btn btn-warning btn-sm">Edit</a>
                                         <a href="#" class="btn btn-danger btn-sm delete"
                                             kelurahan-id="{{$kelurahan->id}}">Delete</a>
                                     </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                                 </tr>

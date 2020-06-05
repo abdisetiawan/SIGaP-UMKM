@@ -15,6 +15,7 @@ use \App\Umkm;
 use \App\Kelurahan;
 use \App\Kecamatan;
 use \App\Kategori;
+use App\Mail\NotifPendaftaranMember;
 
 
 class MemberController extends Controller
@@ -45,6 +46,8 @@ class MemberController extends Controller
         $request->request->add(['user_id' => $user->id]);
         $member = \App\Member::create($request->all());
 
+        \Mail::to($user->email)->send(new NotifPendaftaranMember);
+
         return redirect('/member')->with('sukses','Data sukses diinput');
     }
 
@@ -70,8 +73,7 @@ class MemberController extends Controller
     public function profilesaya() 
     {
         $member = auth()->user()->member;
-        $umkm = auth()->user()->member->umkm;
-        return view('member.profilesaya',compact(['member','umkm']));
+        return view('member.profilesaya',compact(['member']));
     }
 
     public function edit(Member $member){

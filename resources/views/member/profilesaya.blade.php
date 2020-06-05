@@ -14,7 +14,7 @@
             <div class="panel-body">
                 <!-- LEFT COLUMN -->
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <!-- PROFILE HEADER -->
                         <div class="profile-header">
                             <div class="overlay"></div>
@@ -45,44 +45,6 @@
                                     Profile</a></div>
                         </div>
                         <!-- END PROFILE DETAIL -->
-                    </div>
-
-                    <!-- END LEFT COLUMN -->
-
-                    <!-- RIGHT COLUMN -->
-                    <div class="col-md-8">
-                        <!-- TABBED CONTENT -->
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Nama Umkm</th>
-                                    <th>Kategori</th>
-                                    <th>Kecamatan</th>
-                                    <th>Kelurahan</th>
-                                    <th>Alamat</th>
-                                    <th>keterangan</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    @foreach($umkm as $um)
-                                <tr>
-                                    <td>{{$um->nama_umkm}}</td>
-                                    <td>{{$um->kategori->nama_ktgr}}</td>
-                                    <td>{{$um->kecamatan->nama_kcmtn}}</td>
-                                    <td>{{$um->kelurahan->nama_klrhn}}</td>
-                                    <td>{{$um->alamat}}</td>
-                                    <td>{{$um->keterangan}}</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!-- END TABBED CONTENT -->
                     </div>
                 </div>
                 <!-- END RIGHT COLUMN -->

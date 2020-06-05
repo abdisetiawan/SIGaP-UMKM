@@ -30,4 +30,10 @@ class PostController extends Controller
 
         return redirect()->route('posts.index')->with('sukses','Data sukses di post');
     }
+
+    public function delete(Post $post){
+        // metode delete gak pakai parameter
+        $post->delete();
+        return redirect('/posts')->with('sukses','Data berhasil di hapus');
+    }
 }
