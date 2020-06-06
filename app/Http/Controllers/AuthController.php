@@ -19,7 +19,7 @@ class AuthController extends Controller
         {
             return redirect('/dashboard');
         }
-        return redirect('/login');
+        return redirect('/login')->with('error','Email dan Password yang anda masukan salah');
     }
 
     public function logout()

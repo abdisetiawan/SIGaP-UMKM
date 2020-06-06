@@ -56,7 +56,7 @@
         var post_id = $(this).attr('post-id');
         swal({
                 title: "Apakah anda yakin?",
-                text: "Mau di hapus data berita dengan id " + post_id + " ?",
+                text: "",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,

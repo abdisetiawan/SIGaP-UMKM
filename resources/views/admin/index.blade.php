@@ -96,7 +96,7 @@
         var admin_id = $(this).attr('admin-id');
         swal({
                 title: "Apakah anda yakin?",
-                text: "Mau di hapus data admin dengan id " + admin_id + " ?",
+                text: "",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,

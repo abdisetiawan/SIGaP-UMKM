@@ -90,7 +90,7 @@
                 var kecamatan_id = $(this).attr('kecamatan-id');
                 swal({
                         title: "Apakah anda yakin?",
-                        text: "Mau di hapus data kecamatan " + kecamatan_id + " ?",
+                        text: "",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,

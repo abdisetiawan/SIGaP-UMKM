@@ -105,7 +105,7 @@
         var kategori_id = $(this).attr('kategori-id');
         swal({
                 title: "Apakah anda yakin?",
-                text: "Mau di hapus data kategori dengan id " + kategori_id + " ?",
+                text: "",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
