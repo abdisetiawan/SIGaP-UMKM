@@ -67,10 +67,13 @@
             <div class="modal-body">
                 <form action="galeri/create" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('ktrgn_foto') ? 'has-error' : ''}}">
                         <label for="ktrgn_foto">Keterangan</label>
                         <input name="ktrgn_foto" type="text" class="form-control" id="ktrgn_foto"
-                            placeholder="Keterangan" autocomplete="off">
+                            placeholder="Keterangan" autocomplete="off" value="{{old('ktrgn_foto')}}">
+                            @if($errors->has('ktrgn_foto'))
+                        <span class="help-block">{{$errors->first('ktrgn_foto')}}</span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="umkm_id">Nama Umkm</label>
@@ -80,9 +83,12 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('foto') ? 'has-error' : ''}}">
                         <label for="foto">Foto</label>
                         <input type="file" name="foto" class="form-control">
+                        @if($errors->has('foto'))
+                        <span class="help-block">{{$errors->first('foto')}}</span>
+                        @endif
                     </div>
             </div>
             <div class="modal-footer">

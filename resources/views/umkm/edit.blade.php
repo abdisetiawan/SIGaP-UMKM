@@ -2,19 +2,16 @@
 @section('content')
 <div class="main-content">
     <div class="container-fluid">
-        <div class="panel">
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <form action="/umkm/create" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-body">
+                        <form action="/umkm/{{$umkm->id}}/update" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
-                            <div class="form-group {{$errors->has('nama_umkm') ? 'has-error' : ''}}">
+                            <div class="form-group">
                                 <label for="nama_umkm">Nama UMKM</label>
                                 <input name="nama_umkm" type="text" class="form-control" id="nama_umkm"
-                                    placeholder="Nama UMKM" autocomplete="off" value="{{old('nama_umkm')}}">
-                                @if($errors->has('nama_umkm'))
-                                <span class="help-block">{{$errors->first('nama_umkm')}}</span>
-                                @endif
+                                    placeholder="Nama UMKM" autocomplete="off" value="{{$umkm->nama_umkm}}">
                             </div>
                             <div class="form-group">
                                 <label for="kecamatan_id">Kecamatan</label>
@@ -40,48 +37,23 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group {{$errors->has('alamat') ? 'has-error' : ''}}"">
-                                <label for=" alamat">Alamat</label>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
                                 <textarea name="alamat" class="form-control" id="alamat" rows="3"
-                                    autocomplete="off">{{old('alamat')}}</textarea>
-                                @if($errors->has('alamat'))
-                                <span class="help-block">{{$errors->first('alamat')}}</span>
-                                @endif
+                                    autocomplete="off">{{$umkm->alamat}}</textarea>
                             </div>
-                            <div class="form-group {{$errors->has('keterangan') ? 'has-error' : ''}}"">
-                                <label for=" keterangan">Keterangan</label>
+                            <div class="form-group">
+                                <label for="keterangan">Keterangan</label>
                                 <textarea name="keterangan" class="form-control" id="keterangan" rows="3"
-                                    autocomplete="off">{{old('keterangan')}}</textarea>
-                                @if($errors->has('keterangan'))
-                                <span class="help-block">{{$errors->first('keterangan')}}</span>
-                                @endif
+                                    autocomplete="off">{{$umkm->keterangan}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="/umkmsaya" class="btn btn-secondary">Close</a>
                             </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class='gllpLatlonPicker'>
-                            <div class='gllpMap'></div>
-                            <div class="fomr-group">
-                                <label for="titik_lat">Latitude</label>
-                                <input type='text' name='titik_lat' class='gllpLatitude form-control' value='-7.78992'
-                                    readonly />
-                            </div>
-                            <div class="fomr-group">
-                                <label for="titik_long">Longitude</label>
-                                <input type='text' name='titik_long' class='gllpLongitude form-control'
-                                    value='110.37284' readonly />
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="/umkmsaya" class="btn btn-secondary">Close</a>
-                        </div>
-                    </div>
-                    </form>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -113,5 +85,6 @@
             }
         });
     });
+
 </script>
 @stop

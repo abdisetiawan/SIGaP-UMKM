@@ -80,10 +80,13 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="kelurahan">Kelurahan</label>
-                        <input name="kelurahan" type="text" class="form-control" id="kelurahan" placeholder="kelurahan"
-                            autocomplete="off">
+                    <div class="form-group {{$errors->has('nama_klrhn') ? 'has-error' : ''}}">
+                        <label for="nama_klrhn">Kelurahan</label>
+                        <input name="nama_klrhn" type="text" class="form-control" id="nama_klrhn" placeholder="nama_klrhn"
+                            autocomplete="off" value="{{old('nama_klrhn')}}">
+                        @if($errors->has('nama_klrhn'))
+                        <span class="help-block">{{$errors->first('nama_klrhn')}}</span>
+                        @endif
                     </div>
             </div>
             <div class="modal-footer">
@@ -112,6 +115,5 @@
                         }
                     });
             });
-
         </script>
         @stop

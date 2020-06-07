@@ -66,29 +66,31 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Form Data kategori</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
             <div class="modal-body">
                 <form action="/kategori/create" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
-
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('nama_ktgr') ? 'has-error' : ''}}">
                         <label for="nama_ktgr">Nama Kategori</label>
                         <input name="nama_ktgr" type="text" class="form-control" id="nama_ktgr"
-                            placeholder="Nama kategori" autocomplete="off">
+                            placeholder="Nama kategori" autocomplete="off" value="{{old('nama_ktgr')}}">
+                        @if($errors->has('nama_ktgr'))
+                        <span class="help-block">{{$errors->first('nama_ktgr')}}</span>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('logo') ? 'has-error' : ''}}">
                         <label for="logo">Logo</label>
-                        <input type="file" name="logo" class="form-control">
+                        <input type="file" name="logo" class="form-control" value="{{old('logo')}}">
+                        @if($errors->has('logo'))
+                        <span class="help-block">{{$errors->first('logo')}}</span>
+                        @endif
                     </div>
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -117,5 +119,6 @@
                 }
             });
     });
+
 </script>
 @stop

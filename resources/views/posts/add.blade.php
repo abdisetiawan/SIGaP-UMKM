@@ -11,9 +11,9 @@
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Add new post</h3>
+                        <h3 class="panel-title">Tambahkan Berita</h3>
                         <div class="right">
-                            <a href="{{route('posts.add')}}" class="btn btn-primary">Add new post</a>
+                            <a href="{{route('posts.index')}}" class="btn btn-danger">Kembali</a>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -48,7 +48,7 @@
                                 </div>
                                 <img id="holder" style="margin-top:15px;max-height:100px;">
                                 <div class="input-group">
-                                    <input type="submit" class="btn btn-info" value="submit">
+                                    <input type="submit" class="btn btn-primary" value="submit">
                                 </div>
                             </div>
                         </div>

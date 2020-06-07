@@ -17,6 +17,20 @@ class AdminController extends Controller
 
     public function create(Request $request)
     {   
+        $this->validate($request,
+        [
+            'nama' => 'required',
+            'no_telp' => 'required|max:12',
+            'email' => 'required|email|unique:users',
+        ],
+        [
+            'nama.required'   => 'Nama Wajib Di Isi',
+            'no_telp.required' => 'No Telp Wajib Di Isi',
+            'no_telp.max' => 'No Telp Melebihi 12 Digit',
+            'email.required' => 'Email Wajib Di Isi',
+            'email.email' => 'Format Email Salah',
+            'email.unique' => 'Email Sudah Digunakan',
+        ]);
 
         $user = new \App\User;
         $user->role = 'admin';

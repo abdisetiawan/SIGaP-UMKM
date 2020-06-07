@@ -33,6 +33,26 @@ class MemberController extends Controller
 
     public function create(Request $request)
     {  
+        $this->validate($request,
+        [
+            'no_ktp' => 'required|max:16|unique:member',
+            'nama' => 'required',
+            'no_telp' => 'required|max:12',
+            'email' => 'required|email|unique:users',
+            'alamat' => 'required'
+        ],
+        [
+            'no_ktp.required' => 'No KTP Wajib Di Isi',
+            'no_ktp.max'      => 'No KTP Melebihi 16 Digit',
+            'no_ktp.unique'   => 'No KTP Sudah Digunakan',
+            'nama.required'   => 'Nama Wajib Di Isi',
+            'no_telp.required' => 'No Telp Wajib Di Isi',
+            'no_telp.max' => 'No Telp Melebihi 12 Digit',
+            'email.required' => 'Email Wajib Di Isi',
+            'email.email' => 'Format Email Salah',
+            'email.unique' => 'Email Sudah Digunakan',
+            'alamat.required' => 'Alamat Wajib Di Isi'
+        ]);
 
         $user = new \App\User;
         $user->role = 'member';
@@ -44,6 +64,7 @@ class MemberController extends Controller
 
         
         $request->request->add(['user_id' => $user->id]);
+        $member = new \App\Member;
         $member = \App\Member::create($request->all());
 
         \Mail::to($user->email)->send(new NotifPendaftaranMember);

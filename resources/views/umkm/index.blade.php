@@ -15,6 +15,10 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Data UMKM</h3>
+                        <div class="right">
+                            <a href="/umkm/exportpdf" class="btn btn-primary">PDF</a>
+                            <a href="/umkm/exportexcel" class="btn btn-primary">Excel</a>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table table-hover">

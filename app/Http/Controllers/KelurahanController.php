@@ -25,10 +25,19 @@ class KelurahanController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,
+        [
+            'nama_klrhn' => 'required|unique:kelurahan'
+        ],
+        [
+            'nama_klrhn.required'   => 'Nama Kelurahan Wajib Di Isi',
+            'nama_klrhn.unique' => 'Nama Kelurahan Sudah Ada'
+        ]);
+
         $kelurahan = \App\Kelurahan::create(
             [
                 'kecamatan_id' => $request['kecamatan'],
-                'nama_klrhn' => $request['kelurahan']
+                'nama_klrhn' => $request['nama_klrhn']
             ]
         );
         return redirect('/kelurahan')->with('sukses','Data sukses diinput');

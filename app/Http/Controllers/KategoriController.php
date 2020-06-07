@@ -16,6 +16,17 @@ class KategoriController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,
+        [
+            'nama_ktgr' => 'required|unique:kategori',
+            'logo' => 'required'
+        ],
+        [
+            'nama_ktgr.required'   => 'Kategori Wajib Di Isi',
+            'nama_ktgr.unique' => 'Kategori Sudah Ada',
+            'logo.required' => 'Logo Wajib Di Isi'
+        ]);
+
         $kategori = \App\Kategori::create($request->all());
         if($request->hasFile('logo')){
             $request->file('logo')->move('images/',$request->file('logo')->getClientOriginalName());

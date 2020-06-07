@@ -19,6 +19,16 @@ class GaleriController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,
+        [
+            'ktrgn_foto' => 'required',
+            'foto' => 'required'
+        ],
+        [
+            'ktrgn_foto.required' => 'Keterangan Wajib Di Isi',
+            'foto.required' => 'Foto Wajib Di Isi'
+        ]);
+
         $upload = "N";
         if ($request->hasFile('foto')) 
         {

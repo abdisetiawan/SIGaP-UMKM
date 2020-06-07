@@ -16,6 +16,15 @@ class KecamatanController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,
+        [
+            'nama_kcmtn' => 'required|unique:kecamatan'
+        ],
+        [
+            'nama_kcmtn.required'   => 'Nama Kecamatan Wajib Di Isi',
+            'nama_kcmtn.unique' => 'Nama Kecamatan Sudah Ada'
+        ]);
+
         $kecamatan = \App\Kecamatan::create($request->all());
         return redirect('/kecamatan')->with('sukses','Data sukses diinput');
     }

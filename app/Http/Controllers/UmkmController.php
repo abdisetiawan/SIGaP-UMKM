@@ -8,6 +8,9 @@ use \App\Kecamatan;
 use \App\Kelurahan;
 use \App\User;
 use \App\Member;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UmkmExport;
+use PDF;
 
 
 class UmkmController extends Controller
@@ -42,6 +45,7 @@ class UmkmController extends Controller
 
     public function formumkm()
     {
+    
         $data_umkm = \App\Umkm::all();
         $member    = \App\Member::all();
         $kecamatan    = \App\Kecamatan::all();
@@ -52,6 +56,19 @@ class UmkmController extends Controller
 
     public function create(Request $request)
     {
+
+        $this->validate($request,
+        [
+            'nama_umkm' => 'required',
+            'keterangan' => 'required',
+            'alamat' => 'required'
+        ],
+        [
+            'nama_umkm.required' => 'Nama UMKM Wajib Di Isi',
+            'keterangan.required' => 'Keterangan Wajib Di Isi',
+            'alamat.required' => 'Alamat Wajib Di Isi'
+        ]);
+
         $member = Member::where('user_id', auth()->user()->id)->first();
         $umkm = \App\Umkm::create([
                 'member_id'    => $member->id,
@@ -72,6 +89,32 @@ class UmkmController extends Controller
         // metode delete gak pakai parameter
         $umkm->delete();
         return redirect('/umkmsaya')->with('sukses','Data berhasil di hapus');
+    }
+
+    public function exportExcel() 
+    {
+        return Excel::download(new UmkmExport, 'Daftar_Umkm.xlsx');
+    }
+
+    public function exportPdf() 
+    {
+        $umkm = Umkm::all();
+        $pdf = PDF::loadView('export.umkmpdf', ['umkm' => $umkm]);
+        return $pdf->download('umkm.pdf');
+    }
+
+    public function edit(Umkm $umkm){
+        // pasing data ke views edit
+        $kecamatan    = \App\Kecamatan::all();
+        $kelurahan    = \App\Kelurahan::all();
+        $kategori    = \App\Kategori::all();
+        return view('umkm/edit',['umkm' => $umkm,'kelurahan' => $kelurahan,'kecamatan' => $kecamatan,'kategori' => $kategori]);
+    }
+
+    public function update(Request $request,Umkm $umkm){
+        //dd($request->all());
+        $umkm->update($request->all());
+        return redirect('/umkmsaya')->with('sukses','Data sukses diupdate');
     }
 
 }

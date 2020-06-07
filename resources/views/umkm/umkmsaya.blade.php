@@ -35,6 +35,7 @@
                                 <td>{{$um->alamat}}</t d>
                                 <td>{{$um->keterangan}}</td>
                                 <td>
+                                    <a href="/umkm/{{$um->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm delete" umkm-id="{{$um->id}}">Delete</a>
                                 </td>
                             </tr>
@@ -55,7 +56,7 @@
         var umkm_id = $(this).attr('umkm-id');
         swal({
                 title: "Apakah anda yakin?",
-                text: "Mau di hapus data siswa dengan id " + umkm_id + " ?",
+                text: "",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,

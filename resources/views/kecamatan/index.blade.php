@@ -70,10 +70,13 @@
             <div class="modal-body">
                 <form action="/kecamatan/create" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
-                    <div class="form-group">
-                        <label for="nama_kcmtn">Nama Kecamatan</label>
+                    <div class="form-group {{$errors->has('nama_kcmtn') ? 'has-error' : ''}}">
+                        <label for=" nama_kcmtn">Nama Kecamatan</label>
                         <input name="nama_kcmtn" type="text" class="form-control" id="nama_kcmtn"
-                            placeholder="Kecamatan" autocomplete="off">
+                            placeholder="Kecamatan" autocomplete="off" value="{{old('nama_kcmtn')}}">
+                        @if($errors->has('nama_kcmtn'))
+                        <span class="help-block">{{$errors->first('nama_kcmtn')}}</span>
+                        @endif
                     </div>
             </div>
             <div class="modal-footer">
@@ -102,6 +105,5 @@
                         }
                     });
             });
-
         </script>
         @stop

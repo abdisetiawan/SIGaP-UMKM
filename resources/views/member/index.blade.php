@@ -5,6 +5,11 @@
     {{session('sukses')}}
 </div>
 @endif
+@if(session('error'))
+<div class="alert alert-danger" role="alert">
+    {{session('error')}}
+</div>
+@endif
 <div class="main-content">
     <div class="container-fluid">
         <form class="navbar-form navbar-left" method="GET" action="/member">
@@ -78,29 +83,45 @@
             <div class="modal-body">
                 <form action="/member/create" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('no_ktp') ? 'has-error' : ''}}">
                         <label for="no_ktp">No Ktp</label>
-                        <input name="no_ktp" type="text" class="form-control" id="no_ktp" placeholder="No KTP"
-                            autocomplete="off">
+                        <input name="no_ktp" type="number" class="form-control" id="no_ktp" placeholder="No KTP"
+                            autocomplete="off" value="{{old('no_ktp')}}">
+                        @if($errors->has('no_ktp'))
+                        <span class="help-block">{{$errors->first('no_ktp')}}</span>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('nama') ? 'has-error' : ''}}">
                         <label for="nama">Nama Lengkap</label>
                         <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Lengkap"
-                            autocomplete="off">
+                            autocomplete="off" value="{{old('nama')}}">
+                        @if($errors->has('nama'))
+                        <span class="help-block">{{$errors->first('nama')}}</span>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('no_telp') ? 'has-error' : ''}}">
                         <label for="no_telp">No Telepon</label>
                         <input name="no_telp" type="text" class="form-control" id="no_telp" placeholder="No Telphone"
-                            autocomplete="off">
+                            autocomplete="off" value="{{old('no_telp')}}">
+                        @if($errors->has('no_telp'))
+                        <span class="help-block">{{$errors->first('no_telp')}}</span>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('email') ? 'has-error' : ''}}">
                         <label for="email">Email</label>
                         <input name="email" type="text" class="form-control" id="email" placeholder="Email"
-                            autocomplete="off">
+                            autocomplete="off" value="{{old('email')}}">
+                        @if($errors->has('email'))
+                        <span class="help-block">{{$errors->first('email')}}</span>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('alamat') ? 'has-error' : ''}}">
                         <label for="alamat">Alamat</label>
-                        <textarea name="alamat" class="form-control" id="alamat" rows="3" autocomplete="off"></textarea>
+                        <textarea name="alamat" class="form-control" id="alamat" rows="3" autocomplete="off"
+                            value="{{old('alamat')}}"></textarea>
+                        @if($errors->has('alamat'))
+                        <span class="help-block">{{$errors->first('alamat')}}</span>
+                        @endif
                     </div>
             </div>
             <div class="modal-footer">
@@ -131,5 +152,6 @@
                 }
             });
     });
+
 </script>
 @stop

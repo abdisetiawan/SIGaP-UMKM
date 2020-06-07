@@ -21,6 +21,15 @@ class PostController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,
+        [
+            'title' => 'required|unique:posts'
+        ],
+        [
+            'title.required'   => 'Judul Berita Wajib Di Isi',
+            'title.unique' => 'Judul Berita Sudah Ada'
+        ]);
+
         $post = Post::create([
             'title' => $request->title,
             'content' => $request->content,

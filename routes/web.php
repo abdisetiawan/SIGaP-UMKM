@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth','checkRole:member']],function(){
     Route::get('/ambilkelurahan/{id}','UmkmController@ambilkelurahan');
     Route::post('/umkm/create','UmkmController@create');
     Route::get('umkm/{umkm}/delete','UmkmController@delete');
+    Route::get('/umkm/{umkm}/edit','UmkmController@edit');
+    Route::post('/umkm/{umkm}/update','UmkmController@update');
 });
 
 // role admin
@@ -89,11 +91,13 @@ Route::post('/kelurahan/{kelurahan}/update','KelurahanController@update');
 // umkm
 Route::get('/umkm','UmkmController@index');
 
-// laporan excel
+// Export Member
 Route::get('/member/exportexcel','MemberController@exportExcel');
-
-// export pdf
 Route::get('/member/exportpdf','MemberController@exportPdf');
+
+// Export Member
+Route::get('/umkm/exportexcel','UmkmController@exportExcel');
+Route::get('/umkm/exportpdf','UmkmController@exportPdf');
 
 // posts
 Route::get('/posts','PostController@index')->name('posts.index');
