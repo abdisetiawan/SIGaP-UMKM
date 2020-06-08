@@ -36,8 +36,14 @@
     <link rel="stylesheet" href="{{asset('/frontend')}}/css/jquery-ui.css">
     <link rel="stylesheet" href="{{asset('/frontend')}}/css/main.css">
     <link rel="stylesheet" href="{{asset('/frontend')}}/css/app.css">
-    <link rel="stylesheet" href="{{asset('daftar/assets/css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('daftar/assets/external-css/style.css')}}">
+    	<!-- DAFTAR UMKM -->
+	<link href="{{asset('/daftar/assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/daftar/assets/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/daftar/assets/css/prettyPhoto.css')}}" rel="stylesheet">
+    <link href="{{asset('/daftar/assets/css/price-range.css')}}" rel="stylesheet">
+    <link href="{{asset('/daftar/assets/css/animate.css')}}" rel="stylesheet">
+	<link href="{{asset('/daftar/assets/css/main.css')}}" rel="stylesheet">
+	<link href="{{asset('/daftar/assets/css/responsive.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -52,27 +58,24 @@
                         </ul>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
-                        <a href="/"><span class=""></span> <span
-                                class="text">Home</span></a>
-                        <a href="{{ route('daftarumkm.index') }}"><span class=""></span> <span
-                                class="text">Daftar UMKM</span></a>
-                        <a href="/login"><span class=""></span> <span
-                                class="text">Login</span></a>
+                        <a href="/"><span class=""></span> <span class="text">Home</span></a>
+                        <a href="{{ route('daftarumkm.index') }}"><span class=""></span> <span class="text">Daftar
+                                UMKM</span></a>
+                        <a href="/login"><span class=""></span> <span class="text">Login</span></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            
+
         </div>
     </header><!-- #header -->
-
     <main class="py-4">
-            @yield('content')
-        </main>
+        @yield('content')
+    </main>
 
     <!-- start footer Area -->
-    
+
     <!-- End footer Area -->
 
 
@@ -93,38 +96,13 @@
     <script src="{{asset('/frontend')}}/js/mail-script.js"></script>
     <script src="{{asset('/frontend')}}/js/main.js"></script>
     <script src="{{asset('/frontend')}}/js/app.js"></script>
-    <script src="{{asset('daftar/assets/js/app.js')}}"></script>
-    <script src="{{asset('daftar/assets/js/action.js')}}"></script>
-    <script src="{{asset('daftar/assets/js/jquery.js')}}"></script>
+    <script src="{{asset('/daftar/assets/js/jquery.js')}}"></script>
+	<script src="{{asset('/daftar/assets/js/price-range.js')}}"></script>
+    <script src="{{asset('/daftar/assets/js/jquery.scrollUp.min.js')}}"></script>
+	<script src="{{asset('/daftar/assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/daftar/assets/js/jquery.prettyPhoto.js')}}"></script>
+    <script src="{{asset('/daftar/assets/js/main.js')}}"></script>
+    @yield('footer')
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-@yield('script')
-<script>
-$(document).ready(function(){
-
-        filter_data('');
-
-        function filter_data(query='')
-        {   
-            var search=JSON.stringify(query);
-            $.ajax({
-                url:"{{ route('daftarumkm.index') }}",
-                method:'GET',
-                data:{
-                    query:search,
-                    },
-                dataType:'json',
-                success:function(data)
-                {
-                    $('#daftarumkm').html(data.table_data);
-                }
-            })
-        }
-});
-</script>
 
 </html>

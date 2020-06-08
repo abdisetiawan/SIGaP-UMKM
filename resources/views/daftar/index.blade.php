@@ -1,60 +1,101 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="container p-0">
+<br>
+<br>
+<br>
+<div class="container">
     <div class="row">
+        <div class="col-sm-3">
+            <div class="left-sidebar">
+                <h2>Pencarian Berdasarkan</h2>
+                <div class="panel-group category-products" id="accordian">
+                    <!--category-productsr-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    Kecamatan
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="sportswear" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                @foreach ($kecamatan as $kcmtn)
+                                <ul>
+                                    <li><a>{{$kcmtn->nama_kcmtn}}</a></li>
+                                </ul>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    Kelurahan
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="mens" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                @foreach ($kelurahan as $klrhn)
+                                <ul>
+                                    <li><a href="">{{$klrhn->nama_klrhn}}</a></li>
+                                </ul>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-4 col-5 pl-4 filter">
-            <div class="fixedfilter">
-
-                <h3><i class="fa fa-filter"></i> Filter </h3>
-                <input class="mt-3" type="text" id="search" placeholder="Enter product name" style="width:100%;">
-
-                <div class="filterprice card">
-                    <div class="card-body">
-                        <h5 class="card-title">Price</h5>
-                        <input type="range" min="" max="" value=""
-                            class="slider selector" id="pricerange">
-                        <p class="p-0 m-0">Max: RM <span id="currentrange"></span></p>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordian" href="#womens">
+                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    Kategori
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="womens" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                @foreach ($kategori as $ktgr)
+                                <ul>
+                                    <li><a href="/daftarumkm/{{$ktgr->id}}">{{$ktgr->nama_ktgr}}</a></li>
+                                </ul>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="filtergender card">
-                    <div class="card-body">
-                        <h5 class="card-title">Gender</h5>
-                        
-                        <input type="checkbox" id="" class="gender selector" name="gender"
-                            value="">
-                        <label for=""></label><br>
-                        
-                    </div>
-                </div>
-
-                <div class="filterbrand card">
-                    <div class="card-body">
-                        <h5 class="card-title">Brand</h5>
-                        
-                        <input type="checkbox" id="" class="brand selector" name="brand"
-                            value="">
-                        <label for=""></label><br>
-                        
-                    </div>
-                </div>
-
             </div>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-8 col-7 pr-4">
-            <h3>Daftar UMKM</h3>
-
-            <div class="row d-flex justify-content-start" id="daftarumkm">
-                
+        <div class="col-sm-9 padding-right">
+            <div class="features_items">
+                <!--features_items-->
+                <h2 class="title text-center">Daftar UMKM</h2>
+                <div class="col-sm-4">
+                    @foreach ($data_umkm as $umkm)
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="" alt="" />
+                                <h2>{{$umkm->nama_umkm}}</h2>
+                                <p>{{$umkm->kategori->nama_ktgr}}</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i
+                                        class="fa fa-hand-o-right"></i>Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
-
+            <!--features_items-->
         </div>
-
     </div>
 </div>
 
 
-
-@endsection
+@stop
