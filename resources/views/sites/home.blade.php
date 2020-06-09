@@ -1,26 +1,40 @@
 @extends('layouts.frontend')
 
 @section('content')
-<!-- Start cta-one Area -->
 
-<!-- End cta-one Area -->
-
-<section class="cta-one-area relative section-gap">
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
     <div class="container">
-
+        <div class="row fullscreen d-flex align-items-center justify-content-between">
+            <div class="banner-content col-lg-9 col-md-12">
+                <h1 class="text-uppercase">
+                    Selamat Datang Di SIGaP UMKM
+                </h1>
+                <p class="pt-10 pb-10">
+                    SIGaP UMKM adalah sebuah website yang terintegrasi dengan maps untuk menampilkan
+                    seluruh UMKM yang ada di Yogyakarta
+                </p>
+                <a href="#" class="primary-btn text-uppercase">Lihat Daftar UMKM</a>
+            </div>
+        </div>
     </div>
 </section>
+<br>
+<br>
+<br>
+<!-- AREA MAP -->
+<section class="relative section-gap">
+    <div class="container">
+        <div class="overlay overlay-bg"></div>
+        <div class="row justify-content-center">
+            <div class="wrap">
 
-</br>
-</br>
-
-<div class="container">
-    <div class="row">
-        <img src="/images/maps.jpg" alt="">
+            </div>
+        </div>
     </div>
-</div>
+</section>
+<!-- END AREA MAP -->
 
-<!-- Start blog Area -->
 <section class="blog-area section-gap" id="blog">
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -31,29 +45,22 @@
             </div>
         </div>
         <div class="row">
-            @foreach($posts as $post)
+        @foreach($posts as $post)
             <div class="col-lg-3 col-md-6 single-blog">
                 <div class="thumb">
-                    <img class="img-fluid" src="{{$post->thumbnail()}}" width="150">
+                    <img class="img-fluid" src="{{$post->thumbnail()}}">
                 </div>
-                <p class="meta">{{$post->created_at->format('d M Y')}}  |  By <a>{{$post->user->name}}</p>
+                <p class="meta">{{$post->created_at->format('d M Y')}} | By <a>{{$post->user->name}}</a></p>
                 <a>
                     <h5>{{$post->title}}</h5>
                 </a>
-                </a>
                 {!!$post->content!!}
-                <a href="{{route('site.single.post',$post->slug)}}"
-                    class="details-btn d-flex justify-content-center align-items-center"><span
+                <a href="{{route('site.single.post',$post->slug)}}" class="details-btn d-flex justify-content-center align-items-center"><span
                         class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>
             </div>
-            @endforeach
+        @endforeach
         </div>
     </div>
 </section>
-<!-- End blog Area -->
 
-
-<!-- Start cta-two Area -->
-
-<!-- End cta-two Area -->
 @stop

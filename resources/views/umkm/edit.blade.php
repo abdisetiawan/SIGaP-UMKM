@@ -48,6 +48,10 @@
                                     autocomplete="off">{{$umkm->keterangan}}</textarea>
                             </div>
                             <div class="form-group">
+                                <label for="thumbnail">Thumbnail</label>
+                                <input type="file" name="thumbnail" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="/umkmsaya" class="btn btn-secondary">Close</a>
                             </div>

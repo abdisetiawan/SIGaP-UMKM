@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 // homepage
 Route::get('/', 'SiteController@home');
 // daftar umkm
-Route::get('/daftarumkm','DaftarController@index')->name('daftarumkm.index');
+Route::get('/daftarumkm','DaftarController@index');
+Route::get('/daftarumkm/{kategori}/listkt','DaftarController@listkategori');
+Route::get('/daftarumkm/{kecamatan}/listkc','DaftarController@listkecamatan');
+Route::get('/daftarumkm/{kelurahan}/listkl','DaftarController@listkelurahan');
 
 // role member dan admin
 Route::group(['middleware' => ['auth','checkRole:admin,member']],function(){

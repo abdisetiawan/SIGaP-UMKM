@@ -106,7 +106,7 @@ class MemberController extends Controller
         //dd($request->all());
         $member->update($request->all());
         if($request->hasFile('avatar')){
-            $request->file('avatar')->move('images/',$request->file('avatar')->getClientOriginalName());
+            $request->file('avatar')->move('images/galeri/',$request->file('avatar')->getClientOriginalName());
             $member->avatar = $request->file('avatar')->getClientOriginalName();
             $member->save();
         }

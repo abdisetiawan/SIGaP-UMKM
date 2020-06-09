@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('daftar.menu', function($view){
+            $view->with(['kategori'=> \App\Kategori::all(),'kecamatan'=> \App\Kecamatan::all(),'kelurahan'=> \App\Kelurahan::all()]);
+        });
     }
 }

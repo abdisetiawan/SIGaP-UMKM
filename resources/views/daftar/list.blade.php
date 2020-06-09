@@ -23,14 +23,12 @@
                     <img height=200px width=200px src="{{$ukm->getThumbnail()}}">
                 </div>
                 <div class="details">
-                    <ul class="list-unstyled list-justify">
-                        <li>
-                            <h3>{{$ukm->nama_umkm}}</h3>
-                        </li>
-                        <li><span>{{$ukm->kategori->nama_ktgr}}</span></li>
-                        <li><span>{{$ukm->kecamatan->nama_kcmtn}}</span></li>
-                        <li><span>{{$ukm->kelurahan->nama_klrhn}}</span></li>
-                    </ul>
+                <ul class="list-unstyled list-justify">
+                    <li><h3>{{$ukm->nama_umkm}}</h3></li>
+                    <li><span>{{$ukm->kategori->nama_ktgr}}</span></li>
+                    <li><span>{{$ukm->kecamatan->nama_kcmtn}}</span></li>
+                    <li><span>{{$ukm->kelurahan->nama_klrhn}}</span></li>
+                </ul>
                 </div>
             </div>
             @endforeach

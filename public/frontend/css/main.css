@@ -2468,7 +2468,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-    background: url(../img/banner-bg.jpg) right;
+    background: url(../img/w.png) right;
     background-size: cover
 }
 
@@ -3005,7 +3005,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .cta-one-area {
-    background: url(../img/welcome.png) center;
+    background: url(../img/cta-bg.jpg) center;
     background-size: cover;
     text-align: center;
     color: #fff

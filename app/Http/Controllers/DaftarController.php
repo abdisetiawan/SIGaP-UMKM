@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use \App\Umkm;
-use \App\Kategori;
-
 use Illuminate\Http\Request;
 
 class DaftarController extends Controller
@@ -11,12 +8,27 @@ class DaftarController extends Controller
     //
     public function index()
     {
-        $data_umkm = \App\Umkm::all();
-        $member    = \App\Member::all();
-        $kecamatan    = \App\Kecamatan::all();
-        $kelurahan    = \App\Kelurahan::all();
-        $kategori    = \App\Kategori::all();
-        return view('daftar.index',['data_umkm' => $data_umkm,'member' => $member,'kecamatan' => $kecamatan,'kelurahan' => $kelurahan,'kategori' => $kategori]);
+        $umkm = \App\Umkm::all();
+        $galeri = \App\Galeri::all();
+        return view('daftar.index',compact(['umkm','galeri']));
+    }
+
+    public function listkategori($kategori)
+    {
+        $umkm = \App\Umkm::where('kategori_id',$kategori)->get();
+        return view('daftar.list',compact(['umkm']));
+    }
+
+    public function listkecamatan($kecamatan)
+    {
+        $umkm = \App\Umkm::where('kecamatan_id',$kecamatan)->get();
+        return view('daftar.list',compact(['umkm']));
+    }
+
+    public function listkelurahan($kelurahan)
+    {
+        $umkm = \App\Umkm::where('kelurahan_id',$kelurahan)->get();
+        return view('daftar.list',compact(['umkm']));
     }
 
 }

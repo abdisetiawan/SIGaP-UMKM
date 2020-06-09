@@ -3,6 +3,19 @@
 @section('content')
 
 <!-- Start post-content Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Detail Berita
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="post-content-area single-post-area">
     <div class="container">
         <div class="row">

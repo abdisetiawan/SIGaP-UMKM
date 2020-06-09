@@ -114,6 +114,11 @@ class UmkmController extends Controller
     public function update(Request $request,Umkm $umkm){
         //dd($request->all());
         $umkm->update($request->all());
+        if($request->hasFile('thumbnail')){
+            $request->file('thumbnail')->move('images/galeri',$request->file('thumbnail')->getClientOriginalName());
+            $umkm->thumbnail = $request->file('thumbnail')->getClientOriginalName();
+            $umkm->save();
+        }
         return redirect('/umkmsaya')->with('sukses','Data sukses diupdate');
     }
 
