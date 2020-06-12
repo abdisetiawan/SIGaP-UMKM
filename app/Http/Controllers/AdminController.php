@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function index(Request $request)
     {
         $data_admin = \App\Admin::all();
-        return view('admin.index',['data_admin' => $data_admin]);
+        return view('admin.index',compact(['data_admin']));
     }
 
     public function create(Request $request)

@@ -31,4 +31,11 @@ class DaftarController extends Controller
         return view('daftar.list',compact(['umkm']));
     }
 
+    public function detail($ukm)
+    {
+        $galeri = \App\Galeri::where('umkm_id',$ukm)->get();
+        // dd($galeri);
+        return View ('daftar.detail',compact(['galeri']));
+    }
+
 }

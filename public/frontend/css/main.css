@@ -4984,3 +4984,24 @@ dl.toggle.time-line:before {
 .footer-bottom .footer-social a:hover {
     background-color: #f7631b
 }
+
+.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 250px;
+}
+
+.gallery:hover {
+    border: 1px solid #777;
+}
+
+.gallery img {
+    width: 248px;
+    height: 180px;
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
+}

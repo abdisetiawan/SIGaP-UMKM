@@ -25,7 +25,7 @@
                 <div class="details">
                     <ul class="list-unstyled list-justify">
                         <li>
-                            <h3>{{$ukm->nama_umkm}}</h3>
+                        <h3><a href="/daftarumkm/{{$ukm->id}}/detail">{{$ukm->nama_umkm}}</a></span></h3>
                         </li>
                         <li><span>{{$ukm->kategori->nama_ktgr}}</span></li>
                         <li><span>{{$ukm->kecamatan->nama_kcmtn}}</span></li>

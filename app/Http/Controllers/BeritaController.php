@@ -11,7 +11,7 @@ class BeritaController extends Controller
     public function index()
     {
         $data_berita = \App\Berita::all();
-        return view('berita.index',['data_berita' => $data_berita]);
+        return view('berita.index',compact(['data_berita']));
     }
 
     public function create(Request $request)

@@ -11,7 +11,7 @@ class KecamatanController extends Controller
     public function index()
     {
         $data_kecamatan = \App\Kecamatan::all();
-        return view('kecamatan.index',['data_kecamatan' => $data_kecamatan]);
+        return view('kecamatan.index',compact(['data_kecamatan']));
     }
 
     public function create(Request $request)

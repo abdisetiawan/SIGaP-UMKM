@@ -28,7 +28,7 @@ class MemberController extends Controller
         }else{
             $data_member = \App\Member::all();
         }
-        return view('member.index',['data_member' => $data_member]);
+        return view('member.index',compact(['data_member']));
     }
 
     public function create(Request $request)

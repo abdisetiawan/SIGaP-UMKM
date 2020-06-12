@@ -11,7 +11,7 @@ class KategoriController extends Controller
     public function index()
     {
         $data_kategori = \App\Kategori::all();
-        return view('kategori.index',['data_kategori' => $data_kategori]);
+        return view('kategori.index',compact(['data_kategori']));
     }
 
     public function create(Request $request)

@@ -40,7 +40,7 @@ class Umkm extends Model
         # code...
         if (!$this->thumbnail) {
             # code...
-            return asset('images/user.jpg');
+            return asset('images/shop-icon.png');
         }
         return asset('images/galeri/'.$this->thumbnail);
     }

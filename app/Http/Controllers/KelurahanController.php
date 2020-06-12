@@ -13,7 +13,7 @@ class KelurahanController extends Controller
     {
         $data_kelurahan = \App\Kelurahan::all();
         $kecamatan      = \App\Kecamatan::all();
-        return view('kelurahan.index',['data_kelurahan' => $data_kelurahan,'kecamatan' => $kecamatan]);
+        return view('kelurahan.index',compact(['data_kelurahan','kecamatan']));
     }
 
     public function delete(Kelurahan $kelurahan)
