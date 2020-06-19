@@ -18,21 +18,15 @@ class KategoriController extends Controller
     {
         $this->validate($request,
         [
-            'nama_ktgr' => 'required|unique:kategori',
-            'logo' => 'required'
+            'nama_ktgr' => 'required|unique:kategori'
         ],
         [
             'nama_ktgr.required'   => 'Kategori Wajib Di Isi',
             'nama_ktgr.unique' => 'Kategori Sudah Ada',
-            'logo.required' => 'Logo Wajib Di Isi'
         ]);
 
         $kategori = \App\Kategori::create($request->all());
-        if($request->hasFile('logo')){
-            $request->file('logo')->move('images/',$request->file('logo')->getClientOriginalName());
-            $kategori->logo = $request->file('logo')->getClientOriginalName();
-            $kategori->save();
-        }
+        $kategori->save();
         return redirect('/kategori')->with('sukses','Data sukses diinput');
     }
 

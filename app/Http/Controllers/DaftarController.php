@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 class DaftarController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $umkm = \App\Umkm::all();
+        if($request->has('cari')){
+            $umkm = \App\Umkm::where('nama_umkm','LIKE','%'.$request->cari.'%')->get();
+        }else{
+            $umkm = \App\Umkm::all();     
+        }
         $galeri = \App\Galeri::all();
         return view('daftar.index',compact(['umkm','galeri']));
     }

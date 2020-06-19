@@ -16,6 +16,20 @@
 
 <section class="popular-courses-area section-gap courses-page">
     <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <form method="GET" action="/daftarumkm">
+                        <div class="input-group">
+                            <input name="cari" type="search" class="form-control" placeholder="Masukan Nama UMKM">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary">Go</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="row">
             @foreach($umkm as $ukm)
             <div class="single-popular-carusel col-lg-3 col-md-6">
@@ -25,7 +39,7 @@
                 <div class="details">
                     <ul class="list-unstyled list-justify">
                         <li>
-                        <h3><a href="/daftarumkm/{{$ukm->id}}/detail">{{$ukm->nama_umkm}}</a></span></h3>
+                            <h3><a href="/daftarumkm/{{$ukm->id}}/detail">{{$ukm->nama_umkm}}</a></span></h3>
                         </li>
                         <li><span>{{$ukm->kategori->nama_ktgr}}</span></li>
                         <li><span>{{$ukm->kecamatan->nama_kcmtn}}</span></li>

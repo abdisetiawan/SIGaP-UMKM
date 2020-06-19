@@ -25,7 +25,6 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Kategori</th>
-                                    <th>Logo</th>
                                     @if(auth()->user()->role == 'admin')
                                     <th>Aksi</th>
                                     @endif
@@ -39,8 +38,6 @@
                                 <tr>
                                     <td>{{$no}}</td>
                                     <td>{{$kategori->nama_ktgr}}</td>
-                                    <td><img src="images/{{ $kategori->logo }}" class="rounded" alt="Logo" width="30"
-                                            height="30"></td>
                                     @if(auth()->user()->role == 'admin')
                                     <td>
                                         <a href="/kategori/{{$kategori->id}}/edit"
@@ -78,16 +75,9 @@
                     <div class="form-group {{$errors->has('nama_ktgr') ? 'has-error' : ''}}">
                         <label for="nama_ktgr">Nama Kategori</label>
                         <input name="nama_ktgr" type="text" class="form-control" id="nama_ktgr"
-                            placeholder="Nama kategori" autocomplete="off" value="{{old('nama_ktgr')}}">
+                            placeholder="Nama Kategori" autocomplete="off" value="{{old('nama_ktgr')}}">
                         @if($errors->has('nama_ktgr'))
                         <span class="help-block">{{$errors->first('nama_ktgr')}}</span>
-                        @endif
-                    </div>
-                    <div class="form-group {{$errors->has('logo') ? 'has-error' : ''}}">
-                        <label for="logo">Logo</label>
-                        <input type="file" name="logo" class="form-control" value="{{old('logo')}}">
-                        @if($errors->has('logo'))
-                        <span class="help-block">{{$errors->first('logo')}}</span>
                         @endif
                     </div>
             </div>

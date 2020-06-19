@@ -82,7 +82,7 @@
                     </div>
                     <div class="form-group {{$errors->has('nama_klrhn') ? 'has-error' : ''}}">
                         <label for="nama_klrhn">Kelurahan</label>
-                        <input name="nama_klrhn" type="text" class="form-control" id="nama_klrhn" placeholder="nama_klrhn"
+                        <input name="nama_klrhn" type="text" class="form-control" id="nama_klrhn" placeholder="Nama Kelurahan"
                             autocomplete="off" value="{{old('nama_klrhn')}}">
                         @if($errors->has('nama_klrhn'))
                         <span class="help-block">{{$errors->first('nama_klrhn')}}</span>

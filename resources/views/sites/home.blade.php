@@ -19,21 +19,6 @@
         </div>
     </div>
 </section>
-<br>
-<br>
-<br>
-<!-- AREA MAP -->
-<section class="relative section-gap">
-    <div class="container">
-        <div class="overlay overlay-bg"></div>
-        <div class="row justify-content-center">
-            <div class="wrap">
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- END AREA MAP -->
 
 <section class="blog-area section-gap" id="blog">
     <div class="container">
