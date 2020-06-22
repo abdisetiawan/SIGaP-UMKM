@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-group {{$errors->has('no_telp') ? 'has-error' : ''}}">
                         <label for="no_telp">No Telepon</label>
-                        <input name="no_telp" type="text" class="form-control" id="no_telp" placeholder="No Telphone"
+                        <input name="no_telp" type="number" class="form-control" id="no_telp" placeholder="No Telphone"
                             autocomplete="off" value="{{old('no_telp')}}">
                         @if($errors->has('no_telp'))
                         <span class="help-block">{{$errors->first('no_telp')}}</span>

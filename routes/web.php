@@ -21,6 +21,7 @@ Route::get('/daftarumkm/{kategori}/listkt','DaftarController@listkategori');
 Route::get('/daftarumkm/{kecamatan}/listkc','DaftarController@listkecamatan');
 Route::get('/daftarumkm/{kelurahan}/listkl','DaftarController@listkelurahan');
 Route::get('/daftarumkm/{umkm}/detail','DaftarController@detail');
+Route::get('/daftarmap','DetailMapController@index');
 
 // role member dan admin
 Route::group(['middleware' => ['auth','checkRole:admin,member']],function(){

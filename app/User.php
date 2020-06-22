@@ -37,13 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts()
+    public function admin()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasOne(Admin::class);
     }
 
     public function member()
     {
         return $this->hasOne(Member::class);
     }
+    
 }

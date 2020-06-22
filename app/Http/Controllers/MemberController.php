@@ -35,20 +35,18 @@ class MemberController extends Controller
     {  
         $this->validate($request,
         [
-            'no_ktp' => 'required|size:16|numeric|unique:member',
+            'no_ktp' => 'required|size:16|unique:member',
             'nama' => 'required',
-            'no_telp' => 'required|numeric|max:12',
+            'no_telp' => 'required|max:12',
             'email' => 'required|email|unique:users',
             'alamat' => 'required'
         ],
         [
             'no_ktp.required' => 'No KTP Wajib Di Isi',
             'no_ktp.size'      => 'No KTP Harus 16 Digit',
-            'no_ktp.numeric'  => 'No KTP hanya boleh angka',
             'no_ktp.unique'   => 'No KTP Sudah Digunakan',
             'nama.required'   => 'Nama Wajib Di Isi',
             'no_telp.required' => 'No Telp Wajib Di Isi',
-            'no_telp.numeric'  => 'No Telp hanya boleh angka',
             'no_telp.max' => 'No Telp Melebihi 12 Digit',
             'email.required' => 'Email Wajib Di Isi',
             'email.email' => 'Format Email Salah',

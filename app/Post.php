@@ -11,11 +11,11 @@ class Post extends Model
     use Sluggable;
     //
     protected $dates = ['created_at'];
-    protected $fillable = ['title','content','thumbnail','slug','user_id'];
+    protected $fillable = ['title','content','thumbnail','slug','admin_id'];
 
-    public function user()
+    public function admin()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Admin::class);
     }
 
     public function thumbnail()

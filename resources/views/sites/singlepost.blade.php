@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-lg-3  col-md-3 meta-details">
                         <div class="user-details row">
-                            <p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{$post->user->name}}</a> <span
+                            <p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{$post->admin->nama}}</a> <span
                                     class="lnr lnr-user"></span></p>
                             <p class="date col-lg-12 col-md-12 col-6"><a href="#">{{$post->created_at->format('D,d M Y')}}</a> <span
                                     class="lnr lnr-calendar-full"></span></p>
@@ -47,11 +47,8 @@
                     
                     <div class="single-sidebar-widget user-info-widget">
                         <a href="#">
-                            <h4>{{$post->user->name}}</h4>
+                            <h4>{{$post->admin->nama}}</h4>
                         </a>
-                        <p>
-                            {{$post->user->role}}
-                        </p>
                         <ul class="social-links">
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>

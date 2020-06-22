@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Admin;
 
 class PostController extends Controller
 {
@@ -11,7 +12,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('posts.index',compact(['posts']));
+        $admin = Admin::all();
+        return view('posts.index',compact(['posts','admin']));
     }
     
     public function add()
@@ -30,12 +32,12 @@ class PostController extends Controller
             'title.unique' => 'Judul Berita Sudah Ada'
         ]);
 
-        $post = Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'user_id' => auth()->user()->id,
-            'thumbnail' => $request->thumbnail
-        ]);
+        $post = new Post;
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->admin_id = auth()->user()->admin->id;
+        $post->thumbnail = $request->thumbnail;
+        $post->save();
 
         return redirect()->route('posts.index')->with('sukses','Data sukses di post');
     }

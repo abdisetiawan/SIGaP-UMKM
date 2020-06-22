@@ -85,7 +85,7 @@
                     {{csrf_field()}}
                     <div class="form-group {{$errors->has('no_ktp') ? 'has-error' : ''}}">
                         <label for="no_ktp">No Ktp</label>
-                        <input name="no_ktp" type="text" class="form-control" id="no_ktp" placeholder="No KTP"
+                        <input name="no_ktp" type="number" class="form-control" id="no_ktp" placeholder="No KTP"
                             autocomplete="off" value="{{old('no_ktp')}}">
                         @if($errors->has('no_ktp'))
                         <span class="help-block">{{$errors->first('no_ktp')}}</span>
