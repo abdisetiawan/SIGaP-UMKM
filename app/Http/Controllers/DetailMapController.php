@@ -11,8 +11,12 @@ class DetailMapController extends Controller
     //
     public function index()
     {
-        $admin= Admin::all();
-        $umkm= Umkm::all();
-        return view('daftar.map',compact(['umkm','admin']));
+        return view('daftar.map');
+    }
+
+    public function ambilumkm()
+    {
+        $data = Umkm::all();
+        return json_encode($data);
     }
 }

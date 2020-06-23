@@ -14,7 +14,7 @@
                     SIGaP UMKM adalah sebuah website yang terintegrasi dengan maps untuk menampilkan
                     seluruh UMKM yang ada di Yogyakarta
                 </p>
-                <a href="/daftarmap" class="primary-btn text-uppercase">Lihat Map UMKM</a>
+                <a href="/daftarmap" target="_blank" class="primary-btn text-uppercase">Lihat Map UMKM</a>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
                 <a>
                     <h5>{{$post->title}}</h5>
                 </a>
-                <a href="{{route('site.single.post',$post->slug)}}" class="details-btn d-flex justify-content-center align-items-center"><span
+                <a href="{{route('site.single.post',$post->slug)}}" target="_blank" class="details-btn d-flex justify-content-center align-items-center"><span
                         class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>
             </div>
         @endforeach

@@ -30,7 +30,7 @@
                     <div class="left">
                         <div class="content">
                             <div class="header">
-                                <p class="lead">Login to your account</p>
+                                <p class="lead">Login Ke Akun Anda</p>
                             </div>
                             <form class="form-auth-small" action="/postlogin" method="POST">
                                 {{csrf_field()}}
@@ -61,7 +61,9 @@
                         <div class="overlay"></div>
                         <div class="content text">
                             <h1 class="heading">SIGaP UMKM</h1>
-                            <p>by gypsiboy</p>
+                            <p>by:</p>
+                            <p>Putu Abdi Setiawan</p>
+                            <p>Alfadeo Melody JB</p>
                         </div>
                     </div>
                     <div class="clearfix"></div>

@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="/login">Login</a></li>
+                <li><a href="/login" target="_blank">Login</a></li>
             </ul>
         </nav><!-- #nav-menu-container -->
     </div>
