@@ -36,7 +36,7 @@ class AdminController extends Controller
         $user->role = 'admin';
         $user->name = $request->nama;
         $user->email = $request->email;
-        $user->password = bcrypt('kepobangetkamu');
+        $user->password = bcrypt('adminumkmterpadu');
         $user->remember_token = str::random(60);
         $user->save();
 
