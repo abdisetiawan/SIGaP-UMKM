@@ -44,6 +44,7 @@
                         <li><span>{{$ukm->kategori->nama_ktgr}}</span></li>
                         <li><span>{{$ukm->kecamatan->nama_kcmtn}}</span></li>
                         <li><span>{{$ukm->kelurahan->nama_klrhn}}</span></li>
+                        <li><span>{{$ukm->alamat}}</span></li>
                     </ul>
                 </div>
             </div>
